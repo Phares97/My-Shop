@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
     'rosetta',
+    'parler',
+    'localflavor',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGES = (
     ('en', _('English')),
-    ('es', _('Spanish')),
+    ('sw', _('Swahili')),
 )
 
 LANGUAGE_CODE = 'en'
@@ -159,3 +161,14 @@ Configuration.configure(
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'sw'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
